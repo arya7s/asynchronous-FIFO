@@ -23,7 +23,7 @@ module rptr_empty #(parameter ADDR_SIZE = 4)(
         if (!rrst_n)                // Reset the FIFO
             {rbin, rptr} <= 0;
         else 
-            {rbin, rptr} <= {rbin_next, rgray_next};  // Shift the read pointer
+        {rbin, rptr} <= {rbin_next, rgray_next};  // Shift the read pointer,this is used to compress both values delay in 1
     end
 
     assign raddr = rbin[ADDR_SIZE-1:0];                 // Read address calculation from the read pointer
